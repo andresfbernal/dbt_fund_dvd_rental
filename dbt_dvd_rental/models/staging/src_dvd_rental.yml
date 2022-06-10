@@ -1,0 +1,52 @@
+version: 2
+
+sources:
+  - name: public
+    description: A clone of a Postgres application database.
+    database: dvdrental
+    schema: public
+    tables:
+      - name: actor
+        description: Contain actors names and relational ID.
+
+      - name: Address
+        description: Contains data about addresses and cities.
+
+      - name: Category
+        description: Contains data about the category of the film.
+
+      - name: City
+        description: This table has the data related to the cities and relational ids.
+
+      - name: Country
+        description: Has the name of the countries and the relational ID's.
+
+      - name: Customer
+        description: Contains the data related to the customer, like name, stores where they bought and if is active.
+
+      - name: Film
+        description: Has the information about the film, like the title, description, language and raitings.
+
+      - name: Film_actor
+        description: Stores the relation between the film and the actor.
+
+      - name: Film_category
+        description: has the relation between the film and its category.
+
+      - name: Inventory
+        description: Stores the relation between the film and its inventory.
+
+      - name: Language
+        description: Has the language ID and the name for relations with other tables.
+
+      - name: Payment
+        description: has data related to the payment including the customer, staff, the amounts and dates.
+
+      - name: Rental
+        description: Contains the data for the rental of a dvd and the customer of the transaction.
+      
+      - name: Staff
+        description: Staff means the group of people that work in the store.
+
+      - name: Store
+        description: contains the data related to the store like the manager and address.
