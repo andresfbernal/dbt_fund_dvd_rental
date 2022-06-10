@@ -8,45 +8,141 @@ sources:
     tables:
       - name: actor
         description: Contain actors names and relational ID.
+        columns:
+          - name: actor_id
+            description: Primary key for actor.
+            tests:
+              - unique
+              - not_null
 
-      - name: Address
+      - name: address
         description: Contains data about addresses and cities.
+        columns:
+          - name: address_id
+            description: Primary key for address.
+            tests:
+              - unique
+              - not_null
 
-      - name: Category
+      - name: category
         description: Contains data about the category of the film.
+        columns:
+          - name: category_id
+            description: Primary key for category.
+            tests:
+              - unique
+              - not_null
 
-      - name: City
+      - name: city
         description: This table has the data related to the cities and relational ids.
+        columns:
+          - name: city_id
+            description: Primary key for city.
+            tests:
+              - unique
+              - not_null
 
-      - name: Country
+      - name: country
         description: Has the name of the countries and the relational ID's.
+        columns:
+          - name: country_id
+            description: Primary key for country.
+            tests:
+              - unique
+              - not_null
 
-      - name: Customer
+      - name: customer
         description: Contains the data related to the customer, like name, stores where they bought and if is active.
+        columns:
+          - name: customer_id
+            description: Primary key for customer.
+            tests:
+              - unique
+              - not_null
 
-      - name: Film
+      - name: film
         description: Has the information about the film, like the title, description, language and raitings.
+        columns:
+          - name: film_id
+            description: Primary key for actor.
+            tests:
+              - unique
+              - not_null
 
-      - name: Film_actor
+      - name: film_actor
         description: Stores the relation between the film and the actor.
+        columns:
+          - name: actor_id
+            description: Foreign key for actor.
+            tests:
+              - not_null
+          - name: film_id
+            description: Foreign key for film.
+            tests:
+              - not_null
 
-      - name: Film_category
+      - name: film_category
         description: has the relation between the film and its category.
+        columns:
+          - name: category_id
+            description: Foreign key for category.
+            tests:
+              - not_null
+          - name: film_id
+            description: Foreign key for film.
+            tests:
+              - not_null
 
-      - name: Inventory
+      - name: inventory
         description: Stores the relation between the film and its inventory.
+        columns:
+          - name: inventory_id
+            description: Primary key for actor.
+            tests:
+              - unique
+              - not_null
 
-      - name: Language
+      - name: language
         description: Has the language ID and the name for relations with other tables.
+        columns:
+          - name: language_id
+            description: Primary key for language.
+            tests:
+              - unique
+              - not_null
 
-      - name: Payment
+      - name: payment
         description: has data related to the payment including the customer, staff, the amounts and dates.
+        columns:
+          - name: payment_id
+            description: Primary key for payment.
+            tests:
+              - unique
+              - not_null
 
-      - name: Rental
+      - name: rental
         description: Contains the data for the rental of a dvd and the customer of the transaction.
+        columns:
+          - name: rental_id
+            description: Primary key for rental.
+            tests:
+              - unique
+              - not_null
       
-      - name: Staff
+      - name: staff
         description: Staff means the group of people that work in the store.
+        columns:
+          - name: staff_id
+            description: Primary key for staff.
+            tests:
+              - unique
+              - not_null
 
-      - name: Store
+      - name: store
         description: contains the data related to the store like the manager and address.
+        columns:
+          - name: store_id
+            description: Primary key for store.
+            tests:
+              - unique
+              - not_null

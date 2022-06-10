@@ -34,5 +34,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_dvd_rental:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    marts:
+      core:
+        +materialized: table
+        Intermediate:
+          +materialized: view
+      Finance:
+        +materialized: table
+    staging:
       +materialized: view

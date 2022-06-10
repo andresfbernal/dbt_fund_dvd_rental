@@ -1,0 +1,130 @@
+version: 2
+
+
+models:
+  - name: dim_category
+    description: Contains the information of the categories and the films that fit into that clasification.
+    columns:
+      - name: category_id
+        description: Primary key of the category.
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: Name of the category.
+      - name: movies
+        description: list of the titles that fit into the category, the records are separated by commas.
+        
+  - name: dim_customer
+    description: Contains the information of that has at least a rental at the store.
+    columns:
+      - name: customer_id
+        description: Primary key of the customer.
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: First name of the customer.
+      - name: last_name
+        description: Last name of the customer.
+      - name: email
+        description: Email address of the customer.
+      - name: status
+        description: Current status of the customer, can be either active or inactive.
+      - name: create_date
+        description: Date of creation of the user.
+      - name: first_rental_date
+        description: Date of the first rental.
+      - name: most_recent_rental_date
+        description: Date of the most recent rental.
+      - name: number_of_rents
+        description: Number rents the customer have made since the first rental.
+      - name: lifetime_value
+        description: sum of the value of the rentals from the first rent made.
+
+
+  - name: dim_film
+    description: Contains the information of the films that are avaliable in the store.
+    columns:
+      - name: film_id
+        description: Primary key of the category.
+        tests:
+          - unique
+          - not_null
+      - name: title
+        description: Title of the movie.
+      - name: description
+        description: description of the movie.
+      - name: actors
+        description: Cast of the movie, the actor's name will be separated by commas
+      - name: release_year
+        description: Year of the release of the movie
+      - name: Languages
+        description: Original language of the movie.
+      - name: Lengh
+        description: Duration of the movie
+      - name: replacement_cost
+        description: Value in dollars of replacement cost. 
+      - name: special_features
+        description: List of special features that the movie has. 
+      - name: fulltext
+        description: Dctionary of the topics. 
+    
+  - name: dim_location
+    description: Contains the information of addresses registered in the store, including the location of the store itself.
+    columns:
+      - name: address_id
+        description: Primary key of the address.
+        tests:
+          - unique
+          - not_null
+      - name: address
+        description: First detailed address.
+      - name: address2
+        description: Second detailed address if avaliable.
+      - name: distrinct
+        description: District of the location.
+      - name: location
+        description: Contains the country and the city of the address the values are separated by comma.
+      - name: postal_code
+        description: Postal code if avaliable.
+      - name: phone
+        description: Phone of the location code if avaliable.
+
+  - name: dim_staff
+    description: Contains the information of staff that is working in the stores.
+    columns:
+      - name: staff_id
+        description: Primary key of the staffs.
+        tests:
+          - unique
+          - not_null
+      - name: fullname
+        description: Full name of the worker.
+      - name: email
+        description: email of the worker.
+      - name: store_id
+        description: Id of the store where the person works.
+      - name: active
+        description: Bolean that indicates the status of the worker, can either be true if is currently working or false if is not.
+      - name: picture
+        description: Contains the profile picture of the worker.
+
+  - name: dim_store
+    description: Contains the information of staff that is working in the stores.
+    columns:
+      - name: store_id
+        description: Primary key of the store.
+        tests:
+          - unique
+          - not_null
+      - name: address_id
+        description: Address key that will allow you to the the detailed location info.
+      - name: address
+        description: First address provide.
+      - name: district
+        description: district where the store is located.
+      - name: location
+        description: Contains the country and the city of the address the values are separated by comma.
+      - name: manager
+        description: Name of the manager assign to that store.
