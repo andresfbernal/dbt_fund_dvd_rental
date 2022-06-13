@@ -1,20 +1,20 @@
 with film as (
-    select * from {{ source ('public', 'film')}}
+    select * from {{ ref ('stg_film')}}
 ),
 payment as (
     select 
         rental_id, 
         amount 
-     from {{ source ('public', 'payment')}}
+     from {{ ref ('stg_payment')}}
 ),
 rental as (
-    select * from {{ source ('public', 'rental')}}
+    select * from {{ ref ('stg_rental')}}
 ),
 inventory as (
-    select * from {{ source ('public', 'inventory')}}
+    select * from {{ ref ('stg_inventory')}}
 ),
 film_category as (
-    select * from {{ source ('public', 'film_category')}}
+    select * from {{ ref ('stg_film_category')}}
 ),
 
 final as (

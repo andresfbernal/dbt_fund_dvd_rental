@@ -1,14 +1,14 @@
 with film as (
-    select * from {{ source('public', 'film') }}
+    select * from {{ ref('stg_film') }}
 ),
 actor as (
     SELECT * from {{ ref('stg_actor') }}
 ),
 film_actor as (
-    SELECT * from {{ source('public', 'film_actor') }}
+    SELECT * from {{ ref('stg_film_actor') }}
 ),
 language as (
-    SELECT * from {{ source('public', 'language') }}
+    SELECT * from {{ ref( 'stg_language') }}
 ),
 
 actors_per_film as (
