@@ -1,11 +1,11 @@
 with address as (
-    select * from {{ source('public', 'address') }}
+    select * from {{ ref('stg_address') }}
 ),
 city as (
-    SELECT * from {{ source('public', 'city') }}
+    SELECT * from {{ ref('stg_city') }}
 ),
 country as (
-    SELECT * from {{ source('public', 'country') }}
+    SELECT * from {{ ref('stg_country') }}
 ),
 
  final as (

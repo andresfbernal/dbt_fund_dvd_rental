@@ -1,11 +1,11 @@
 with film as (
-    select * from {{ source('public', 'film') }}
+    select * from {{ ref('stg_film') }}
 ),
 film_category as (
-    SELECT * from {{ source('public', 'film_category') }}
+    SELECT * from {{ ref('stg_film_category') }}
 ),
 category as (
-    SELECT * from {{ source('public', 'category') }}
+    SELECT * from {{ ref('stg_category') }}
 ),
 
  film_category_detailed as (

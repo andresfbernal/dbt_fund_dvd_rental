@@ -11,7 +11,7 @@ rental as (
     select * from {{ source ('public', 'rental')}}
 ),
 inventory as (
-    select * from {{ source ('public', 'inventory')}}
+    select * from {{ ref ('stg_inventory')}}
 ),
 
 final as (
