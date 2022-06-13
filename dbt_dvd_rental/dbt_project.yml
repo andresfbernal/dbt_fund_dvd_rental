@@ -42,4 +42,4 @@ models:
       Finance:
         +materialized: table
     staging:
-      +materialized: view
+      +materialized: ephemeral
