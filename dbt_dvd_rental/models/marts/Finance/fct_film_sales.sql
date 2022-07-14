@@ -1,7 +1,7 @@
-{#{{ config{
-    materialized_'incremental'
-} }}
-#}
+{{ config(
+    materialized='incremental'
+) }}
+
 with rents_paid as (
     select *
      from {{ ref ('int_rents_paid')}}
